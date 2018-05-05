@@ -27,6 +27,8 @@ tancurile primesc ca argumente:
     HARTA cu un pas in urma
     miscarile celorlalte tancuri (cate un vector)
     directiile de impuscare pt celelalte tancuri (tot vector asa)
+    cate momente de miscare are
+    cate momente de tragere are
 
     programul trimite un json in care spune 
         la fiecare unitate de timp in ce directie se muta UP, DOWN, LEFT, RIGHT, STAY
