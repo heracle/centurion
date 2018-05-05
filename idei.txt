@@ -1,0 +1,42 @@
+meniu_joc -> setam dimensiunile plansei
+             fixam cati bani primeste fiecare tanc
+             fixam numarul de partide de joc
+             HP initial
+             dimensiune tanc initiala (cred ca patrat)
+             durata unei runde (nr de secunde in care toate tancurile fac ceva)
+             ceva parametru pt generat obstacole pe plansa (poate chiar maze?)
+
+
+init_tanc -->   functie apelata doar la inceputul jocului
+          -->   primeste ca argument nr de bani, viteza si dimensiunea actuala (toate tancurile primesc aceleasi valori)
+          -->   returneaza / scoate un json cu ce vrea sa cumpere
+
+MAGAZIN   -->   tipuri de tunuri :
+                                        frecventa (nr intreg sau divizor al lui 1)
+                                        damage HP
+                                        cost
+                dimensiune tanc
+                        latura noua
+                        cost
+-------------------------------
+
+joc : la fiecare runda avem dT milisecunde pt gandire pt fiecare tanc
+
+tancurile primesc ca argumente:
+    HARTA (pozitii ocupate de alte tancuri / obstacole)
+    HARTA cu un pas in urma
+    miscarile celorlalte tancuri (cate un vector)
+    directiile de impuscare pt celelalte tancuri (tot vector asa)
+
+    programul trimite un json in care spune 
+        la fiecare unitate de timp in ce directie se muta UP, DOWN, LEFT, RIGHT, STAY
+        la fiecare moment de tragere spre ce pozitie trage (cred ca ar fi misto sa lovim primul obstacol din drum, deci sa mergem din celula in celula)
+    
+    
+apoi avem T secunde pt simularea jocului in care poate reusim cumva sa afisam fiecare tragere, nu stiu
+
+
+poate, daca vrem, sa adaugam la magazin bombe sau nebunii, cu care sa distrugem obstacole
+si astea sa se arunce doar la final de runda, ca altfel nu ar fi echilibrat
+s-ar modifica putin si json-ul trimis:w
+
