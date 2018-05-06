@@ -1,5 +1,6 @@
 from logger import Logger
 
+
 class Controller:
     # add other stuff here
     def __init__(self, player_id, coordinates, color):
@@ -7,6 +8,7 @@ class Controller:
         self.coordinates = coordinates
         self.color = color
         self.grid = []
+        self.action = None # this is gonna be the json
 
     def update_grid(self, grid):
         self.grid = grid
@@ -30,6 +32,11 @@ class Controller:
         Logger.warn('not yet implemented')
         Logger.log('move(); player {}'.format(self.player_id))
         pass
+
+
+def apply_next_move(controller):
+    pass
+
 
 if __name__ == '__main__':
     pass

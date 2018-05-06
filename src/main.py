@@ -1,29 +1,33 @@
 from controller import Controller
 from logger import Logger
+from render import *
+import constants
+
 
 # just some init things I'm doing now for the architecture demo
 # don't take this crappy code too serious
-grid = [[0 for j in range(8)] for i in range(7)]
+grid = constants.EMPTY_GRID
 player1 = {
     'player_id': 1,
     'coordinates': {
-        'x': 1,
-        'y': 1,
+        'x': 8,
+        'y': 2,
     },
-    'color': 'red',
+    'color': constants.colors['RED'],
 }
 player2 = {
     'player_id': 2,
     'coordinates': {
-        'x': 4,
-        'y': 2,
+        'x': 1,
+        'y': 7,
     },
-    'color': 'blue',
+    'color': constants.colors['BLUE'],
 }
-grid[player1['coordinates']['x']][player1['coordinates']['y']] = 1
-grid[player2['coordinates']['x']][player2['coordinates']['y']] = 2
+grid[player1['coordinates']['x']][player1['coordinates']['y']] = Tank(player1['color'])
+grid[player2['coordinates']['x']][player2['coordinates']['y']] = Tank(player2['color'])
 # okay the crappy init code is over here, we will probably do another config
 # file for this, but for now it looks ok just the way it is right here
+
 
 # now define the two players controllers
 controller = []
@@ -38,6 +42,7 @@ controller.append(
         player2['coordinates'],
         player2['color']))
 
+
 # each player will have a function, so let's hardcode those for now
 def player1_function(controller):
     Logger.log(controller.get_my_tank_coordinates())
@@ -45,8 +50,10 @@ def player1_function(controller):
 def player2_function(controller):
     Logger.log(controller.get_my_tank_coordinates())
 
+
 # now let's play
 if __name__ == '__main__':
+    render([grid])
     game_over = False
     while game_over == False:
         # note that it's very important to update the grid each time before calling player_function.
