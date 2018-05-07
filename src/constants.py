@@ -5,7 +5,7 @@ GAME_NAME = 'Dau cu tancu\' 6 5'
 # how much the graphics should wait until going to the next step
 TIMEOUT = 1
 # how much it should wait after endgame until the window closes
-TIME_UNTIL_WINDOW_CLOSE = 50
+TIME_UNTIL_WINDOW_CLOSE = 3
 
 # more constants
 WINDOW_BACKGROUND = 'black'
