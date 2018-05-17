@@ -4,6 +4,12 @@ from logger import Logger
 from render import *
 import constants
 
+from bosslangapi import BosslangApi
+sys.path.insert(0, './bosslang')
+sys.path.insert(0, './bosslang/lib')
+from stdmethods import Injector
+from exe import runsource
+
 # just some init things I'm doing now for the architecture demo
 # don't take this crappy code too serious
 grid = constants.EMPTY_GRID
@@ -93,6 +99,19 @@ def player0_function(controller, round):
     # 'y': 2,
 
     # Logger.log(controller.shot({'x':20, 'y':7}))
+
+    Injector.bosslang_injected_methods = BosslangApi(controller)
+    runsource("""
+    program NONAME00;
+    var x, y, t : integer;
+    var r : real;
+    begin
+        t := CALL(isgroundcell, 1, 1);
+        CALL(print, t);
+        { x := CALL(getmycoord); }
+    end.
+    """)
+
     if round % 2 == 0:
     	Logger.indent(controller.shot({'x':8, 'y':2}))
     	Logger.indent(controller.shot({'x':8, 'y':3}))
@@ -110,7 +129,7 @@ def player0_function(controller, round):
     pass
 
 # now let's play
-if __name__ == '__main__':
+def main():
     render([grid])
     game_over = False
 
@@ -133,4 +152,5 @@ if __name__ == '__main__':
         if game.apply_next_move(controller, grid, tanksHP) == False:
         	game_over = True # demo
 
-
+if __name__ == '__main__':
+    main()

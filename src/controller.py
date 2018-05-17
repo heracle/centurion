@@ -86,8 +86,6 @@ class Controller:
             return True
         return False
 
-
-
     def get_water_cells(self):
         Logger.log('get_water_cells(); player {}'.format(self.player_id))
         water_cells = []
