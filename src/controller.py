@@ -176,14 +176,13 @@ class Controller:
             Logger.error('coordinates not point to a gound cell, player {}'.format(self.player_id))
             return False
 
-        if(coordinates['y'] != self.coordinates['y']):
+        if coordinates['y'] != self.coordinates['y'] :
             Logger.error('coordinates do not have the same y value, player {}'.format(self.player_id))
             return False
 
         distance = coordinates['x'] - self.coordinates['x']
 
-
-        if(self.team['DX'] * distance <= 0): #0 is when we have the destination exactly on the actual possition
+        if self.team['DX'] * distance <= 0: #0 is when we have the destination exactly on the actual possition
             Logger.error('coordinates are not in the good direction, player {}'.format(self.player_id))
             return False
 
@@ -192,10 +191,7 @@ class Controller:
         return self.action
 
    
-
-
 class Round_process:
-    
     def __init__(self):
         self.projectile_active = [] # the format will be the direction DX, actual coordinates and destination coordinates
         self.grid_history = [] # the round, the counter inside the round, the grid, the tanksHP
@@ -240,7 +236,6 @@ class Round_process:
                 self.damage(self.find_tank(i, grid), tanksHP, grid)
                 self.grid_history.append(self.make_grid_moment(self.round, self.counter, grid, tanksHP))
                 render.render([grid])
-
 
 
     def damage(self, tank_coordinates, tanksHP, grid):
@@ -367,8 +362,6 @@ class Round_process:
                     self.projectile_active.append({'dx': action['dx'], 
                                                     'act_coord': self.find_tank(i, grid),
                                                     'dest_coord': action['coordinates']} )
-
-        pass
 
     def make_grid_moment(self, round, counter, grid, tanksHP):
         return {'round': round, 'index': counter, 'grid': grid, 'taksHP': tanksHP}
