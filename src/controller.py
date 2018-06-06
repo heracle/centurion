@@ -19,7 +19,7 @@ class Controller:
 
     def update(self, grid, tanksHP):
         self.grid = grid
-        self.taksHP = tanksHP
+        self.tanksHP = tanksHP
         self.round = self.round + 1
         self.action = None
         self.coordinates = self.get_my_tank_coordinates()
@@ -32,6 +32,17 @@ class Controller:
 
     def get_coordinates(self):
         return self.coordinates
+
+    def get_tankhp_by_index(self, index)
+        return self.tanksHP[index]
+
+    def get_total_number_tanks(self)
+        return self.tanksHP.__len__()
+
+    def get_tank_team(self, index)
+        if(index < self.tanksHP.__len__() / 2)
+            return 0
+        return 1
 
     def get_my_tank_coordinates(self):
         Logger.log('get_my_tank_coordinates(); player {}'.format(self.player_id))
