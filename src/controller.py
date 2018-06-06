@@ -44,6 +44,11 @@ class Controller:
             return 0
         return 1
 
+    def get_grid_size(self)
+        return { 'x': self.grid.__len__(), 
+                 'y': self.grid[0].__len__()
+                }
+
     def get_my_tank_coordinates(self):
         Logger.log('get_my_tank_coordinates(); player {}'.format(self.player_id))
         for i in range(self.grid.__len__()):
