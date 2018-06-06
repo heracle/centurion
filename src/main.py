@@ -58,7 +58,7 @@ def create_players():
     for player_index in range(args_count):
         team = 1
         if player_index < args_count / 2:
-            team = 1
+            team = 0
 
         player = {
             'player_id': player_index,
