@@ -9,7 +9,6 @@ from constants import *
 from blocks import *
 
 
-# render different types of blocks for the game (i.e. tank, obstacle, empty)
 class RenderBlock:
     @staticmethod
     def build_point(i, j):
@@ -49,33 +48,37 @@ class RenderBlock:
         image.draw(win)
 
 
-def draw_grid(win, grid):
-    for i in range(HEIGHT):
-        for j in range(WIDTH):
-            if type(grid[i][j]) is Ground:
-                RenderBlock.ground(win, i, j, grid[i][j]);
-            elif type(grid[i][j]) is Water:
-                RenderBlock.water(win, i, j, grid[i][j]);
-            elif type(grid[i][j]) is Obstacle:
-                RenderBlock.obstacle(win, i, j, grid[i][j]);
-            elif type(grid[i][j]) is Tank:
-                RenderBlock.tank(win, i, j, grid[i][j]);
-            elif type(grid[i][j]) is Projectile:
-                RenderBlock.projectile(win, i, j, grid[i][j]);
-    graphics.update()
+class Render:
+    def __init__(self):
+        self.win = graphics.GraphWin(constants.GAME_NAME, HEIGHT * BLOCK_SIZE, WIDTH * BLOCK_SIZE, autoflush=False)
+        self.win.setBackground(constants.WINDOW_BACKGROUND)
+
+    def __del__(self):
+        time.sleep(AT_ENDGAME_TIME_UNTIL_WINDOW_CLOSE)
+
+    @staticmethod
+    def draw_grid(win, grid):
+        for i in range(HEIGHT):
+            for j in range(WIDTH):
+                if type(grid[i][j]) is Ground:
+                    RenderBlock.ground(win, i, j, grid[i][j]);
+                elif type(grid[i][j]) is Water:
+                    RenderBlock.water(win, i, j, grid[i][j]);
+                elif type(grid[i][j]) is Obstacle:
+                    RenderBlock.obstacle(win, i, j, grid[i][j]);
+                elif type(grid[i][j]) is Tank:
+                    RenderBlock.tank(win, i, j, grid[i][j]);
+                elif type(grid[i][j]) is Projectile:
+                    RenderBlock.projectile(win, i, j, grid[i][j]);
+        graphics.update()
+
+    def render(self, grids):
+        for grid in grids:
+            self.draw_grid(self.win, grid)
+            time.sleep(TIMEOUT)
 
 
-def render(grids):
-    win = graphics.GraphWin(constants.GAME_NAME, HEIGHT * BLOCK_SIZE, WIDTH * BLOCK_SIZE, autoflush=False)
-    win.setBackground(constants.WINDOW_BACKGROUND)
-
-    for grid in grids:
-        draw_grid(win, grid)
-        time.sleep(TIMEOUT)
-    
-    time.sleep(TIME_UNTIL_WINDOW_CLOSE)
-    win.close()
-
+render = Render()
 
 if __name__ == '__main__':
     pass

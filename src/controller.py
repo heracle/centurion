@@ -1,6 +1,8 @@
 from logger import Logger
 import constants
-from render import *
+from constants import *
+from render import render
+from blocks import *
 
 class Controller:
     # add other stuff here
@@ -237,12 +239,11 @@ class Round_process:
             if tanksHP[i] > 0 and action == None:
                 self.damage(self.find_tank(i, grid), tanksHP, grid)
                 self.grid_history.append(self.make_grid_moment(self.round, self.counter, grid, tanksHP))
-                render([grid])
+                render.render([grid])
 
 
 
     def damage(self, tank_coordinates, tanksHP, grid):
-
         tank = grid[tank_coordinates['x']][tank_coordinates['y']]
 
         player_id = tank.player_id
@@ -291,7 +292,6 @@ class Round_process:
                 
                 grid[destination['x']][destination['y']] = grid[tank_coordinates['x']][tank_coordinates['y']]
                 grid[tank_coordinates['x']][tank_coordinates['y']] = Ground()
-
 
 
     def move_projectiles(self, grid, tanksHP):
@@ -352,7 +352,7 @@ class Round_process:
             # print(something_changed)
             if something_changed == True:
                 self.grid_history.append(self.make_grid_moment(self.round, self.counter, grid, tanksHP))
-                render([grid])
+                render.render([grid])
 
 
     def add_projectiles(self, controllers, parity, grid):
@@ -403,7 +403,6 @@ class Round_process:
 
 
     def apply_next_move(self, controllers, grid, tanksHP):
-
         #firstly, the already thrown projectiles will be moved (because we don't want to make a strategy by moving or throw another projectile in defense),
         #then, the new projectiles will be moved (for hiting always any very close enemy tank)
         #the 'none'-s, which mean auto damage
@@ -411,22 +410,14 @@ class Round_process:
 
         #this function will return false if the game is finished after this round
         #controller here is the array of controllers
-
         self.round = self.round + 1
-
         self.counter = 0
-
-
         self.grid_history.append(self.make_grid_moment(self.round, self.counter, grid, tanksHP))
 
         #attach the new projectiles to the projectile_active -> if the round parity decide the first processed team
-        # so, for round 1, the first team will be team 1 and the second one will be team 0
-
+        #so, for round 1, the first team will be team 1 and the second one will be team 0
         self.add_projectiles(controllers, self.round % 2, grid)     
         self.add_projectiles(controllers, 1 - self.round % 2, grid) #2 calls, 1 for each team
-
-
-        # print(self.projectile_active)
 
         self.move_projectiles(grid, tanksHP);
         self.no_move_auto_damage(grid, tanksHP, controllers);

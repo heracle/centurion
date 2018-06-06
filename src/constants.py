@@ -3,9 +3,9 @@ from blocks import *
 # Game name
 GAME_NAME = 'Dau cu tancu\' 6 5'
 # how much the graphics should wait until going to the next step
-TIMEOUT = 2
+TIMEOUT = .2
 # how much it should wait after endgame until the window closes
-TIME_UNTIL_WINDOW_CLOSE = 0
+AT_ENDGAME_TIME_UNTIL_WINDOW_CLOSE = 5
 # Maximum time when the tanks should throw at least one shot
 TIME_MAX_BETWEEN_SHOTS = 10
 

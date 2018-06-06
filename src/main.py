@@ -1,10 +1,11 @@
 from controller import Controller
 from controller import Round_process
 from logger import Logger
-from render import *
 import constants
+import sys
 
 from bosslangapi import BosslangApi
+from blocks import *
 sys.path.insert(0, './bosslang')
 sys.path.insert(0, './bosslang/lib')
 from stdmethods import Injector
@@ -130,7 +131,7 @@ def player0_function(controller, round):
 
 # now let's play
 def main():
-    render([grid])
+    # render.render([grid])
     game_over = False
 
     game = Round_process()
