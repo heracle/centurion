@@ -33,6 +33,7 @@ def import_player_functions():
         try:
             strategy = __import__(sys.argv[arg_index + 1])
             print(strategy.strategy)
+            # Injector.bosslang_injected_methods = BosslangApi(controller)
             if arg_index < args_count / 2:
                 teams[0].append(strategy.strategy)
             else:

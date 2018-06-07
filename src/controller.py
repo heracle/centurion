@@ -404,10 +404,10 @@ class Round_process:
             Logger.indent('Game finished; Draw')
             return False
         elif(team_alive[0] == False):
-            Logger.indent('Game finised; Team 1 won; ' + str(team_name[1]['NAME']) + ' won')
+            Logger.indent('Game finised; Team 1 won; ')
             return False
         elif(team_alive[1] == False):
-            Logger.indent('Game finised; Team 0 won; ' + str(team_name[0]['NAME']) + ' won')
+            Logger.indent('Game finised; Team 0 won; ')
             return False
         return True
 

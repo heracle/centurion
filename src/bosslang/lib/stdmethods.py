@@ -58,11 +58,11 @@ def isProjectileCell(x, y):
 def getTypeCell(x, y):
 	return Injector.bosslang_injected_methods.get_type_cell(x, y)
 
-def doMove(x, y):
-	return Injector.bosslang_injected_methods.do_move(x, y)
+def move(x, y):
+	return Injector.bosslang_injected_methods.move(x, y)
 
-def doShot(x, y):
-	return Injector.bosslang_injected_methods.do_shot(x, y)
+def shot(x, y):
+	return Injector.bosslang_injected_methods.shot(x, y)
 
 def squared(x):
     return x * x
