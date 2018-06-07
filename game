@@ -1,0 +1,15 @@
+#!/bin/bash
+echo $#
+
+cd src
+
+if [ $# -eq 2 ]
+then
+	python3 main.py $1 $2
+fi
+
+if [ $# -eq 4 ]
+then
+	python3 main.py $1 $2 $3 $4
+fi
+

@@ -27,9 +27,9 @@ Programming game in which each player comes up with a strategy (function) to con
 
 
 ### How to run
-Clone the git repository. Go to the `centurion/src` folder and run `python3 main.py STRATEGY_1 STRATEGY_2` to make two strategies fight against each other.
+Clone the git repository. Go to the `centurion` folder and run `./game STRATEGY_1 STRATEGY_2` to make two strategies fight against each other.
 
-Example `python3 main.py russia usa`
+Example `./game russia usa`
 
 <span style='color: #DD4C3F;'>Be careful to select the right order for the arguments</span>. That is, `python3 main.py russia usa` is not the same as `python3 main.py usa russia`. The first player is positioned on the top of the map and the second one on the bottom
 
