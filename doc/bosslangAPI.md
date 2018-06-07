@@ -60,11 +60,11 @@ Here are the methods available:
 	Returns an Integer (0 or 1) - 1 if the cell at coordinates `x y` has a projectile on it or 0 otherwise
 
 * `CALL(get_type_cell, x, y)`
-	Returns an Integer R
-		if `R & 1`  -> ground cell
-		if `R & 2`  -> water cell
-		if `R & 4`  -> object cell
-		if `R & 8`  -> projectile cell
+Returns an Integer R
+	*	if `R & 1`  -> ground cell
+	*	if `R & 2`  -> water cell
+	*	if `R & 4`  -> object cell
+	*	if `R & 8`  -> projectile cell
 
 * `CALL(isObjectCell, x, y)`
 	Returns an Integer (0 or 1) - 1 if the cell at coordinates `x y` is an object cell or 0 otherwise
