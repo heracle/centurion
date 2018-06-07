@@ -24,6 +24,9 @@ class Controller:
         self.action = None
         self.coordinates = self.get_my_tank_coordinates()
 
+    def get_round(self):
+        return self.round
+
     def get_team(self):
         return self.team['NO']
 
@@ -33,18 +36,18 @@ class Controller:
     def get_coordinates(self):
         return self.coordinates
 
-    def get_tankhp_by_index(self, index)
+    def get_tankhp_by_index(self, index):
         return self.tanksHP[index]
 
-    def get_total_number_tanks(self)
+    def get_total_number_tanks(self):
         return self.tanksHP.__len__()
 
-    def get_tank_team(self, index)
-        if(index < self.tanksHP.__len__() / 2)
+    def get_tank_team(self, index):
+        if(index < self.tanksHP.__len__() / 2):
             return 0
         return 1
 
-    def get_grid_size(self)
+    def get_grid_size(self):
         return { 'x': self.grid.__len__(), 
                  'y': self.grid[0].__len__()
                 }

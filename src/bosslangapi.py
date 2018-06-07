@@ -4,6 +4,9 @@ class BosslangApi:
     def __init__(self, controller):
         self.controller = controller
 
+    def get_round(self):
+        return self.controller.get_round()
+
     def get_team(self):
         return self.controller.get_team()
     
@@ -115,7 +118,7 @@ class BosslangApi:
         coord['x'] = x
         coord['y'] = y
         rec = self.controller.move(coord)
-        if(rec == False)
+        if(rec == False):
             return 0;
         return 1;
     
@@ -124,7 +127,7 @@ class BosslangApi:
         coord['x'] = x
         coord['y'] = y
         rec = self.controller.shot(coord)
-        if(rec == False)
+        if(rec == False):
             return 0;
         return 1;
 

@@ -4,6 +4,9 @@
 class Injector():
     bosslang_injected_methods = None
 
+def getRound():
+	return Injector.bosslang_injected_methods.get_round()
+
 def getTeam():
 	return Injector.bosslang_injected_methods.get_team()
 

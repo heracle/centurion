@@ -18,6 +18,9 @@ This can be useful if some of the cells are hidden.
     * `grid`: array of arrays
     * `tanksHP`: array of HP for all the tanks
 
+* `get_round()`
+Returns an Integer, the number of the round
+
 * `get_team()`
 Returns 0 or 1, depending the team of the actual controller
 
