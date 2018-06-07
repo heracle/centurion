@@ -104,7 +104,7 @@ def main():
         for player_index in range(players.__len__()):
             if tanksHP[player_index] != 0:
                 controllers[player_index].update(grid, tanksHP) 
-                players[player_index]['strategy'](controllers[player_index], game.get_round())
+                players[player_index]['strategy'](controllers[player_index])
 
         if game.apply_next_move(controllers, grid, tanksHP) == False:
         	game_over = True

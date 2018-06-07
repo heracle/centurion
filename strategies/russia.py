@@ -1,19 +1,12 @@
-def strategy(controller, round):
-    # if round % 2 == 0:
-    #     controller.shot({'x':8, 'y':2})
-    #     controller.shot({'x':8, 'y':3})
-    # controller.move({'x':1, 'y':2})
-    # controller.move({'x':1, 'y':3})
-
-    import sys
-    sys.path.insert(0, '../src')
-    from bosslangapi import BosslangApi
-    sys.path.insert(0, './bosslang')
-    sys.path.insert(0, './bosslang/lib')
-    from stdmethods import Injector
-    from exe import runsource
+import sys
+sys.path.insert(0, '../src')
+from bosslangapi import BosslangApi
+sys.path.insert(0, './bosslang')
+sys.path.insert(0, './bosslang/lib')
+from stdmethods import Injector
+from exe import runsource
     
-
+def strategy(controller):
     Injector.bosslang_injected_methods = BosslangApi(controller)
     runsource("""
     program NONAME00;
