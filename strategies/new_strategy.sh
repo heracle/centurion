@@ -1,7 +1,5 @@
 
 if [ $1 ]; then
-  echo "----"
-  echo $1
   cp strategy_template.py $1.py
   echo "[+] Strategy created in $1.py"
 else
