@@ -1,9 +1,7 @@
 ## bosslangAPI
 
-The bosslangSTDmethods offers some method useful for develop a strategy in bosslang language
+The bosslangSTDmethods offers some methods useful for developing a strategy in bosslang language
 Here are the methods available:
-
-* `CALL(isgroundcell, 1, 1)`
 
 * `CALL(getTeam)`
 	Returns 0 or 1, depending the team of the actual controller
