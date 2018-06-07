@@ -61,16 +61,16 @@ class BosslangApi:
         return self.controller.is_projectile_cell({'x': x, 'y':y})
 
     def get_type_cell(self, x, y):
+        ret = 0
         if elf.controller.is_ground_cell({'x': x, 'y':y}) ==  True:
-            return 0
+            ret += 1
         if self.controller.is_water_cell({'x': x, 'y':y}) ==  True:
-            return 1
+            ret += 2
         if self.controller.is_object_cell({'x': x, 'y':y}) == True:
-            return 2
+            ret += 4
         if self.controller.is_projectile_cell({'x': x, 'y':y}) == True:
-            return 3
-        assert False
-        return -1 #hope to be rendumdant
+            ret += 8
+        return ret
 
 
     # def get_water_cells(self):
@@ -110,7 +110,7 @@ class BosslangApi:
     #     return r
 
 
-    def do_move(self, x, y):
+    def move(self, x, y):
         coord = {}
         coord['x'] = x
         coord['y'] = y
@@ -119,7 +119,7 @@ class BosslangApi:
             return 0;
         return 1;
     
-    def do_shot(self, x, y):
+    def shot(self, x, y):
         coord = {}
         coord['x'] = x
         coord['y'] = y
