@@ -66,3 +66,6 @@ def shot(x, y):
 
 def squared(x):
     return x * x
+
+def printer(x):
+	print(x)

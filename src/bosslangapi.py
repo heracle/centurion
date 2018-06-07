@@ -65,14 +65,14 @@ class BosslangApi:
 
     def get_type_cell(self, x, y):
         ret = 0
-        if elf.controller.is_ground_cell({'x': x, 'y':y}) ==  True:
-            ret += 1
+        if self.controller.is_ground_cell({'x': x, 'y':y}) ==  True:
+            ret = ret + 1
         if self.controller.is_water_cell({'x': x, 'y':y}) ==  True:
-            ret += 2
+            ret = ret + 2
         if self.controller.is_object_cell({'x': x, 'y':y}) == True:
-            ret += 4
+            ret = ret + 4
         if self.controller.is_projectile_cell({'x': x, 'y':y}) == True:
-            ret += 8
+            ret = ret + 8
         return ret
 
 
